@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PropertySights Real Estate — Verified Condos for Expats in Bangkok</title>
+  <meta name="description" content="PropertySights matches expats with verified, actually available condos in Bangkok. No fake listings. No pressure. Free service." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    :root {
+      /* Trustworthy · Geeky · Minimal */
+      --ink:       #1a1f2e;       /* near-black for headings */
+      --navy:      #1e2a45;       /* deep trust blue */
+      --navy-mid:  #243354;
+      --teal:      #0d7c6e;       /* primary action — calm, trustworthy */
+      --teal-dark: #095f54;
+      --teal-soft: rgba(13,124,110,0.08);
+      --teal-mid:  rgba(13,124,110,0.15);
+      --sky:       #e8f4f2;       /* very light teal tint */
+      --white:     #ffffff;
+      --off:       #f7f8fa;
+      --border:    #e2e6ed;
+      --muted:     #6b7280;
+      --body:      #374151;
+      --dark:      #111827;
+      --amber:     #d97706;       /* used sparingly for flags / stars */
+
+      --ff-head: 'Public Sans', sans-serif;
+      --ff-body: 'Plus Jakarta Sans', sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --r:    4px;
+      --r-lg: 8px;
+      --sh-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --sh-md: 0 4px 16px rgba(0,0,0,0.08);
+      --sh-lg: 0 12px 48px rgba(0,0,0,0.10);
+    }
+
+    body {
+      font-family: var(--ff-body);
+      font-size: 1rem; font-weight: 400;
+      color: var(--body);
+      background: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────────────
+       NAV
+    ───────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: var(--sh-md); }
+
+    .nav-brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .nav-mark {
+      width: 30px; height: 30px;
+      background: var(--navy);
+      border-radius: var(--r);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-mark svg { width: 15px; stroke: #fff; fill: none; stroke-width: 2; }
+    .nav-name {
+      font-family: var(--ff-head); font-size: 0.92rem; font-weight: 700;
+      color: var(--ink); letter-spacing: -0.01em; line-height: 1.1;
+    }
+    .nav-name small {
+      display: block; font-size: 0.6rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--teal); color: var(--white);
+      font-family: var(--ff-body); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.58rem 1.3rem; border: none; border-radius: var(--r);
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+    /* ─────────────────────────────────────
+       HELPERS
+    ───────────────────────────────────── */
+    .wrap    { max-width: 1160px; margin: 0 auto; padding: 0 2.5rem; }
+    .wrap-sm { max-width: 800px;  margin: 0 auto; padding: 0 2.5rem; }
+    .section { padding: 5.5rem 0; }
+    .section--alt  { background: var(--off); }
+    .section--dark { background: var(--navy); }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--ff-head); font-size: 0.67rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.85rem;
+    }
+    .eyebrow--dim { color: rgba(255,255,255,0.4); }
+
+    .h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(1.75rem, 3vw, 2.55rem);
+      font-weight: 700; line-height: 1.18;
+      color: var(--ink); letter-spacing: -0.022em;
+    }
+    .h2 em    { font-style: italic; font-weight: 300; color: var(--teal); }
+    .h2-w     { color: var(--white); }
+    .h2-w em  { color: rgba(255,255,255,0.6); }
+
+    .lead {
+      font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.8;
+      max-width: 560px;
+    }
+    .lead-w { color: rgba(255,255,255,0.55); }
+
+    .rule { width: 36px; height: 2px; background: var(--teal); margin: 1.3rem 0; }
+    .rule-c { margin: 1.3rem auto; }
+
+    .center { text-align: center; }
+    .center .lead { margin: 0 auto; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .ani { opacity: 0; animation: fadeUp 0.75s var(--ease) forwards; }
+    .ani-1 { animation-delay: 0.15s; }
+    .ani-2 { animation-delay: 0.3s; }
+    .ani-3 { animation-delay: 0.45s; }
+    .ani-4 { animation-delay: 0.6s; }
+
+    /* ─────────────────────────────────────
+       HERO
+    ───────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      padding-top: 64px;
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      background: var(--white);
+    }
+    .hero-l {
+      background: var(--navy);
+      padding: 7rem 4.5rem 6rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    /* subtle grid lines */
+    .hero-l::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(13,124,110,0.18);
+      border: 1px solid rgba(13,124,110,0.35);
+      border-radius: 2rem;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #5ecfbf;
+      width: fit-content; margin-bottom: 2rem;
+    }
+    .hero-chip .live {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #5ecfbf;
+      animation: blink 1.8s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.2} }
+
+    .hero-h1 {
+      font-family: var(--ff-head);
+      font-size: clamp(2.1rem, 3.8vw, 3.4rem);
+      font-weight: 700; line-height: 1.1;
+      color: var(--white);
+      letter-spacing: -0.025em;
+      margin-bottom: 1.4rem;
+    }
+    .hero-h1 em { font-style: italic; font-weight: 300; color: #5ecfbf; }
+
+    .hero-sub {
+      font-size: 1rem; font-weight: 300;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.8; max-width: 450px; margin-bottom: 1.6rem;
+    }
+    .hero-trust-line {
+      font-size: 0.82rem; color: rgba(255,255,255,0.38);
+      margin-bottom: 2.4rem; letter-spacing: 0.02em;
+    }
+    .hero-trust-line span { color: rgba(255,255,255,0.6); }
+
+    .hero-bullets { display: flex; flex-direction: column; gap: 0.6rem; }
+    .hb {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 0.82rem; color: rgba(255,255,255,0.45);
+    }
+    .hb-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--teal); flex-shrink: 0;
+    }
+
+    /* hero form panel */
+    .hero-r {
+      background: var(--white);
+      border-left: 1px solid var(--border);
+      padding: 4.5rem 3rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .hf-title {
+      font-family: var(--ff-head); font-size: 1.1rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .hf-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.8rem; }
+
+    .hform { display: flex; flex-direction: column; gap: 0.7rem; }
+    .hform input, .hform select {
+      width: 100%; padding: 0.78rem 1rem;
+      border: 1.5px solid var(--border); border-radius: var(--r);
+      font-family: var(--ff-body); font-size: 0.86rem;
+      color: var(--dark); background: var(--off);
+      outline: none; appearance: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .hform input:focus, .hform select:focus {
+      border-color: var(--teal); background: var(--white);
+    }
+    .hform input::placeholder { color: #9ca3af; }
+    .hform-sep {
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .hform-sep::before, .hform-sep::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .hform-sep span { font-size: 0.68rem; color: var(--muted); white-space: nowrap; }
+    .hform-btn {
+      width: 100%; background: var(--teal); color: var(--white);
+      font-family: var(--ff-body); font-size: 0.88rem; font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.9rem 1.5rem; border: none; border-radius: var(--r);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .hform-btn:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .hform-btn svg { width: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .hform-note {
+      font-size: 0.68rem; color: var(--muted); text-align: center; margin-top: 0.3rem;
+    }
+    .hform-guarantees {
+      display: flex; gap: 0.5rem; justify-content: center;
+      margin-top: 1.4rem; padding-top: 1.4rem;
+      border-top: 1px solid var(--border); flex-wrap: wrap;
+    }
+    .hg {
+      font-size: 0.7rem; color: var(--muted);
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .hg::before { content: '✓'; color: var(--teal); font-weight: 700; }
+
+    /* ─────────────────────────────────────
+       TRUST BAR
+    ───────────────────────────────────── */
+    .trust-bar {
+      background: var(--off);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
+    }
+    .tb-inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 2.5rem;
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tb-label {
+      font-size: 0.72rem; font-weight: 500; color: var(--muted);
+      letter-spacing: 0.06em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .tb-sep { width: 1px; height: 20px; background: var(--border); }
+    .tb-flags { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .tf {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-size: 0.75rem; color: var(--muted);
+    }
+    .tf-flag { font-size: 1rem; }
+    .tb-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .tbs {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; color: var(--muted);
+    }
+    .tbs strong { color: var(--ink); font-size: 0.8rem; }
+    .tbs svg { width: 14px; stroke: var(--teal); fill: none; stroke-width: 2; }
+
+    /* ─────────────────────────────────────
+       PROBLEM
+    ───────────────────────────────────── */
+    .problem-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: start; margin-top: 3.5rem;
+    }
+    .problem-copy p {
+      font-size: 0.95rem; color: var(--body); line-height: 1.85; margin-bottom: 1.5rem;
+    }
+    .problem-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .pl-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.1rem 0; border-bottom: 1px solid var(--border);
+    }
+    .pl-item:first-child { border-top: 1px solid var(--border); }
+    .pl-n {
+      font-family: var(--ff-head); font-size: 0.65rem; font-weight: 700;
+      color: var(--teal); letter-spacing: 0.1em; margin-top: 0.2rem;
+      flex-shrink: 0; width: 22px;
+    }
+    .pl-body strong {
+      display: block; font-size: 0.88rem; font-weight: 600; color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .pl-body span {
+      font-size: 0.82rem; color: var(--muted); line-height: 1.7;
+    }
+    .pl-body .quote {
+      display: block; font-style: italic; color: var(--muted);
+      border-left: 2px solid var(--border); padding-left: 0.7rem;
+      margin-bottom: 0.4rem; font-size: 0.85rem;
+    }
+    .problem-callout {
+      background: var(--off); border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .problem-callout h4 {
+      font-family: var(--ff-head); font-size: 0.88rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.6rem;
+    }
+    .problem-callout p { font-size: 0.85rem; color: var(--muted); line-height: 1.75; }
+    .problem-visual {
+      position: sticky; top: 5.5rem;
+      background: var(--navy);
+      border-radius: var(--r-lg);
+      padding: 2.5rem;
+      overflow: hidden;
+    }
+    .problem-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .pv-label {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+      margin-bottom: 1rem;
+    }
+    .pv-message {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--r);
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .pvm-tag {
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .pvm-tag.agent { color: rgba(255,255,255,0.3); }
+    .pvm-tag.you { color: #5ecfbf; }
+    .pvm-text {
+      font-family: var(--ff-head); font-size: 0.88rem; font-style: italic;
+      color: rgba(255,255,255,0.7); line-height: 1.5;
+    }
+    .pv-divider {
+      text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.2);
+      margin: 1.2rem 0; letter-spacing: 0.1em;
+    }
+    .pv-insight {
+      background: rgba(13,124,110,0.15);
+      border: 1px solid rgba(13,124,110,0.25);
+      border-radius: var(--r);
+      padding: 1rem 1.2rem;
+    }
+    .pv-insight p {
+      font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.7;
+    }
+    .pv-insight strong { color: #5ecfbf; font-weight: 600; }
+
+    /* ─────────────────────────────────────
+       SOLUTION
+    ───────────────────────────────────── */
+    .solution-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); margin-top: 3.5rem;
+    }
+    .sg-cell {
+      background: var(--white); padding: 2.5rem;
+      transition: background 0.25s;
+    }
+    .sg-cell:hover { background: var(--sky); }
+    .sg-icon {
+      width: 40px; height: 40px;
+      background: var(--teal-soft); border-radius: var(--r);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .sg-icon svg { width: 18px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+    .sg-h {
+      font-family: var(--ff-head); font-size: 0.95rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.5rem;
+    }
+    .sg-p { font-size: 0.85rem; color: var(--muted); line-height: 1.75; }
+    .sg-positioning {
+      grid-column: 1 / -1;
+      background: var(--navy); padding: 3rem;
+      display: flex; align-items: center; gap: 2.5rem;
+    }
+    .sgp-quote {
+      font-family: var(--ff-head);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-style: italic; font-weight: 300;
+      color: var(--white); line-height: 1.5; flex: 1;
+    }
+    .sgp-quote strong { font-weight: 700; color: #5ecfbf; font-style: normal; }
+    .sgp-aside { min-width: 200px; }
+    .sgp-aside p { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
+
+    /* ─────────────────────────────────────
+       HOW IT WORKS
+    ───────────────────────────────────── */
+    .steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 4rem; position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 2.9rem; left: calc(16.66% + 1rem); right: calc(16.66% + 1rem);
+      height: 1px;
+      background: repeating-linear-gradient(
+        to right, var(--teal-mid) 0, var(--teal-mid) 8px, transparent 8px, transparent 18px
+      );
+      pointer-events: none;
+    }
+    .step-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--sh-sm);
+      position: relative; z-index: 1;
+      opacity: 0; transform: translateY(14px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), box-shadow 0.25s;
+    }
+    .step-card.visible { opacity: 1; transform: translateY(0); }
+    .step-card:nth-child(2) { transition-delay: 0.15s; }
+    .step-card:nth-child(3) { transition-delay: 0.3s; }
+    .step-card:hover { box-shadow: var(--sh-md); }
+    .step-n {
+      width: 48px; height: 48px;
+      background: var(--navy); color: var(--white);
+      font-family: var(--ff-head); font-size: 1rem; font-weight: 700;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.8rem; position: relative; z-index: 2;
+      box-shadow: 0 0 0 5px var(--white), 0 0 0 6px var(--border);
+    }
+    .step-card h3 {
+      font-family: var(--ff-head); font-size: 0.95rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.6rem;
+    }
+    .step-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.75; }
+    .step-tag {
+      display: inline-block; margin-top: 1.1rem;
+      background: var(--teal-soft); color: var(--teal);
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.28rem 0.75rem; border-radius: 2rem;
+    }
+
+    /* ─────────────────────────────────────
+       SOCIAL PROOF
+    ───────────────────────────────────── */
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 4rem;
+    }
+    .testi {
+      background: var(--navy-mid);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      transition: transform 0.3s var(--ease), border-color 0.3s;
+    }
+    .testi:hover { transform: translateY(-4px); border-color: rgba(13,124,110,0.3); }
+    .t-stars { font-size: 0.8rem; color: #f59e0b; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .t-q {
+      font-family: var(--ff-head); font-style: italic; font-weight: 300;
+      font-size: 0.93rem; color: rgba(255,255,255,0.82);
+      line-height: 1.65; margin-bottom: 1.5rem;
+    }
+    .t-auth { display: flex; align-items: center; gap: 0.8rem; }
+    .t-av {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-head); font-size: 0.85rem; font-weight: 700;
+      color: var(--white); flex-shrink: 0;
+    }
+    .t-name { font-size: 0.8rem; font-weight: 600; color: var(--white); }
+    .t-flag { font-size: 0.88rem; }
+    .t-meta { font-size: 0.7rem; color: rgba(255,255,255,0.35); margin-top: 0.1rem; }
+    .trust-badges {
+      margin-top: 4rem; padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap;
+    }
+    .tbadge {
+      display: flex; align-items: center; gap: 0.55rem;
+      font-size: 0.76rem; color: rgba(255,255,255,0.38);
+    }
+    .tbadge svg { width: 15px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+
+    /* ─────────────────────────────────────
+       OFFER
+    ───────────────────────────────────── */
+    .offer-band {
+      background: var(--sky);
+      border-top: 1px solid rgba(13,124,110,0.15);
+      border-bottom: 1px solid rgba(13,124,110,0.15);
+      padding: 3.5rem 0;
+    }
+    .offer-inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 2.5rem;
+      display: flex; align-items: center; gap: 3rem;
+    }
+    .offer-badge {
+      width: 64px; height: 64px;
+      background: var(--white);
+      border: 1px solid rgba(13,124,110,0.2);
+      border-radius: var(--r-lg);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--sh-sm);
+    }
+    .offer-badge svg { width: 28px; stroke: var(--teal); fill: none; stroke-width: 1.6; }
+    .offer-copy { flex: 1; }
+    .offer-copy h2 {
+      font-family: var(--ff-head); font-size: 1.35rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.4rem; line-height: 1.25;
+    }
+    .offer-copy h2 em { font-style: italic; font-weight: 300; color: var(--teal); }
+    .offer-copy p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+    .offer-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .ot {
+      background: var(--white); border: 1px solid rgba(13,124,110,0.2);
+      border-radius: 2rem; padding: 0.28rem 0.8rem;
+      font-size: 0.7rem; font-weight: 500; color: var(--body);
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .ot::before { content: '✓'; color: var(--teal); font-weight: 700; }
+    .offer-cta a {
+      background: var(--teal); color: var(--white);
+      font-family: var(--ff-body); font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.04em; white-space: nowrap;
+      padding: 0.9rem 1.8rem; border-radius: var(--r);
+      text-decoration: none; display: inline-block;
+      box-shadow: 0 4px 16px rgba(13,124,110,0.25);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .offer-cta a:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
+    /* ─────────────────────────────────────
+       LEAD FORM
+    ───────────────────────────────────── */
+    #form { padding: 6rem 0; }
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      box-shadow: var(--sh-lg);
+      padding: 3rem 3.5rem;
+      margin-top: 3rem;
+    }
+    .fg { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fg .full { grid-column: 1 / -1; }
+    .ff { display: flex; flex-direction: column; gap: 0.38rem; }
+    .ff label {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy);
+    }
+    .ff input, .ff select {
+      padding: 0.78rem 1rem;
+      border: 1.5px solid var(--border); border-radius: var(--r);
+      font-family: var(--ff-body); font-size: 0.86rem;
+      color: var(--dark); background: var(--off);
+      outline: none; appearance: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .ff input:focus, .ff select:focus {
+      border-color: var(--teal); background: var(--white);
+    }
+    .ff input::placeholder { color: #9ca3af; }
+    .form-btn {
+      grid-column: 1 / -1;
+      background: var(--teal); color: var(--white);
+      font-family: var(--ff-body); font-size: 0.92rem; font-weight: 700;
+      letter-spacing: 0.04em; padding: 1rem; border: none; border-radius: var(--r);
+      cursor: pointer; width: 100%; margin-top: 0.3rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .form-btn:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .form-btn svg { width: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .form-note {
+      grid-column: 1 / -1; font-size: 0.7rem; color: var(--muted);
+      text-align: center; margin-top: 0.5rem;
+    }
+    .form-assurances {
+      margin-top: 2rem; padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .fa-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      flex: 1; min-width: 160px;
+    }
+    .fa-ico {
+      width: 32px; height: 32px; background: var(--teal-soft);
+      border-radius: var(--r); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .fa-ico svg { width: 14px; stroke: var(--teal); fill: none; stroke-width: 2; }
+    .fa-text strong { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); }
+    .fa-text span { font-size: 0.75rem; color: var(--muted); }
+
+    /* ─────────────────────────────────────
+       FAQ
+    ───────────────────────────────────── */
+    #faq { padding: 5.5rem 0; }
+    .faq-list { max-width: 700px; margin: 3.5rem auto 0; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-btn {
+      width: 100%; background: none; border: none;
+      text-align: left; padding: 1.4rem 0;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; cursor: pointer;
+    }
+    .faq-q {
+      font-family: var(--ff-head); font-size: 0.92rem; font-weight: 600;
+      color: var(--dark); line-height: 1.4;
+    }
+    .faq-ico {
+      width: 24px; height: 24px; background: var(--navy);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.25s;
+    }
+    .faq-ico svg { width: 9px; stroke: #fff; fill: none; stroke-width: 2.5; transition: transform 0.3s var(--ease); }
+    .faq-item.open .faq-ico { background: var(--teal); }
+    .faq-item.open .faq-ico svg { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 0.86rem; color: var(--muted); line-height: 1.85;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s var(--ease), padding 0.3s;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.4rem; }
+
+    /* ─────────────────────────────────────
+       FINAL CTA
+    ───────────────────────────────────── */
+    #final {
+      background: var(--navy);
+      padding: 7rem 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #final::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    #final::after {
+      content: '';
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(13,124,110,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-inner {
+      position: relative; z-index: 1;
+      max-width: 640px; margin: 0 auto; padding: 0 2.5rem;
+    }
+    .final-h {
+      font-family: var(--ff-head);
+      font-size: clamp(2rem, 4.2vw, 3.2rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.12; letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .final-h em { font-style: italic; font-weight: 300; color: #5ecfbf; }
+    .final-sub {
+      font-size: 0.95rem; color: rgba(255,255,255,0.5);
+      max-width: 420px; margin: 0 auto 2.5rem; line-height: 1.8;
+    }
+    .final-btns { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-fp {
+      background: var(--teal); color: var(--white);
+      font-family: var(--ff-body); font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 1rem 2.2rem; border: none; border-radius: var(--r);
+      cursor: pointer; text-decoration: none; display: inline-block;
+      box-shadow: 0 6px 24px rgba(13,124,110,0.3);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-fp:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-fs {
+      color: rgba(255,255,255,0.4); font-size: 0.8rem;
+      text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.15);
+      transition: color 0.2s;
+    }
+    .btn-fs:hover { color: rgba(255,255,255,0.75); }
+    .final-meta {
+      margin-top: 2rem; font-size: 0.7rem;
+      color: rgba(255,255,255,0.2); letter-spacing: 0.08em;
+    }
+
+    /* ─────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────── */
+    footer {
+      background: #10172a;
+      padding: 2rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .f-brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; }
+    .f-mark {
+      width: 24px; height: 24px; background: var(--teal);
+      border-radius: 3px; display: flex; align-items: center; justify-content: center;
+    }
+    .f-mark svg { width: 12px; stroke: #fff; fill: none; stroke-width: 2; }
+    .f-name {
+      font-family: var(--ff-head); font-size: 0.8rem; font-weight: 600;
+      color: rgba(255,255,255,0.35);
+    }
+    .f-copy { font-size: 0.7rem; color: rgba(255,255,255,0.2); letter-spacing: 0.04em; }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────── */
+    @media (max-width: 960px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-l { padding: 5rem 2rem 3.5rem; }
+      .hero-r { border-left: none; border-top: 1px solid var(--border); padding: 3rem 2rem; }
+      .problem-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .problem-visual { position: static; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .sg-positioning { flex-direction: column; gap: 1.5rem; }
+      .steps { grid-template-columns: 1fr; }
+      .steps::before { display: none; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .offer-inner { flex-direction: column; align-items: flex-start; }
+      .form-card { padding: 2rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .wrap, .wrap-sm { padding: 0 1.2rem; }
+      .fg { grid-template-columns: 1fr; }
+      .tb-flags, .tb-stats { gap: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAV
+═══════════════════════════════════════ -->
+<nav id="nav">
+  <a href="#" class="nav-brand">
+    <div class="nav-mark">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div class="nav-name">
+      PropertySights
+      <small>Real Estate · Bangkok</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#form" class="nav-cta">Get Matched — Free</a>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-l">
+    <div class="hero-chip ani ani-1">
+      <span class="live"></span>
+      Boutique Agency · English-Friendly · Bangkok
+    </div>
+    <h1 class="hero-h1 ani ani-2">
+      Find a Real Condo in Bangkok—<br/><em>Without the Fake Listings</em>
+    </h1>
+    <p class="hero-sub ani ani-3">
+      PropertySights matches expats with verified, actually available condos—based on your lifestyle, budget, and location. No spam. No pressure. No wasted trips.
+    </p>
+    <p class="hero-trust-line ani ani-3">
+      Trusted by expats relocating to Bangkok <span>from around the world 🌏</span>
+    </p>
+    <div class="hero-bullets ani ani-4">
+      <div class="hb"><span class="hb-dot"></span>Verified listings only — we call before we send</div>
+      <div class="hb"><span class="hb-dot"></span>Curated matches within 24–48 hours</div>
+      <div class="hb"><span class="hb-dot"></span>Free for tenants · One-year lease specialists</div>
+    </div>
+  </div>
+
+  <div class="hero-r">
+    <div class="hf-title">Get Your Verified Condo Matches</div>
+    <div class="hf-sub">Tell us what you need — we'll find options that actually exist.</div>
+    <div class="hform">
+      <input type="text" placeholder="Your name" />
+      <input type="text" placeholder="WhatsApp / LINE / Email" />
+      <div class="hform-sep"><span>Your requirements</span></div>
+      <select>
+        <option value="" disabled selected>Monthly budget (THB)</option>
+        <option>Below ฿15,000</option>
+        <option>฿15,000 – ฿25,000</option>
+        <option>฿25,000 – ฿40,000</option>
+        <option>฿40,000 – ฿70,000</option>
+        <option>฿70,000+</option>
+      </select>
+      <select>
+        <option value="" disabled selected>Preferred area</option>
+        <option>Sukhumvit (general)</option>
+        <option>Asok / Nana</option>
+        <option>Thonglor / Ekkamai</option>
+        <option>Silom / Sathorn</option>
+        <option>Ari / Phahon Yothin</option>
+        <option>Near BTS / MRT only</option>
+        <option>Open to suggestions</option>
+      </select>
+      <button class="hform-btn">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Get My Verified Condo Matches
+      </button>
+    </div>
+    <p class="hform-note">Free · No spam · No pressure</p>
+    <div class="hform-guarantees">
+      <span class="hg">Verified listings</span>
+      <span class="hg">48h turnaround</span>
+      <span class="hg">Zero cost</span>
+      <span class="hg">No obligation</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     TRUST BAR
+═══════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="tb-inner">
+    <span class="tb-label">Trusted by expats from</span>
+    <div class="tb-sep"></div>
+    <div class="tb-flags">
+      <span class="tf"><span class="tf-flag">🇬🇧</span> UK</span>
+      <span class="tf"><span class="tf-flag">🇺🇸</span> USA</span>
+      <span class="tf"><span class="tf-flag">🇦🇺</span> Australia</span>
+      <span class="tf"><span class="tf-flag">🇩🇪</span> Germany</span>
+      <span class="tf"><span class="tf-flag">🇫🇷</span> France</span>
+      <span class="tf"><span class="tf-flag">🇸🇬</span> Singapore</span>
+      <span class="tf"><span class="tf-flag">🇯🇵</span> Japan</span>
+      <span class="tf">& more 🌏</span>
+    </div>
+    <div class="tb-sep"></div>
+    <div class="tb-stats">
+      <span class="tbs">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <strong>100%</strong> listings verified
+      </span>
+      <span class="tbs">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Matches in <strong>48h</strong>
+      </span>
+      <span class="tbs">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <strong>Free</strong> for tenants
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PROBLEM
+═══════════════════════════════════════ -->
+<section id="problem" class="section">
+  <div class="wrap">
+    <div class="problem-layout">
+      <div class="problem-copy">
+        <span class="eyebrow">Sound Familiar?</span>
+        <h2 class="h2">Bangkok Rental Search<br/><em>Is Broken</em></h2>
+        <div class="rule"></div>
+        <p>If you're an expat moving to Bangkok, this is probably what your search looks like right now:</p>
+        <ul class="problem-list">
+          <li class="pl-item">
+            <span class="pl-n">01</span>
+            <div class="pl-body">
+              <span class="quote">"Sorry, it's not available anymore."</span>
+              <strong>Listings that look perfect — but don't exist</strong>
+              <span>Most portals have no quality control. Units stay live months after they're rented. You find something great, reach out, and get the news. It was never real.</span>
+            </div>
+          </li>
+          <li class="pl-item">
+            <span class="pl-n">02</span>
+            <div class="pl-body">
+              <span class="quote">"Let me show you something else instead…"</span>
+              <strong>Agents pushing you into units you didn't ask for</strong>
+              <span>The place in the listing doesn't match the photos. You've made the trip. Now an agent is steering you toward something else entirely.</span>
+            </div>
+          </li>
+          <li class="pl-item">
+            <span class="pl-n">03</span>
+            <div class="pl-body">
+              <strong>Endless messages with zero results</strong>
+              <span>WhatsApp groups, Facebook posts, portal enquiries — all generating noise. You're following up leads that were never going anywhere.</span>
+            </div>
+          </li>
+          <li class="pl-item">
+            <span class="pl-n">04</span>
+            <div class="pl-body">
+              <strong>Wasting days visiting condos you never asked for</strong>
+              <span>You're not searching for a condo. You're filtering noise. And it's exhausting.</span>
+            </div>
+          </li>
+        </ul>
+        <div class="problem-callout">
+          <h4>You're not searching wrong — the system is broken.</h4>
+          <p>Most online listings in Bangkok are outdated, duplicated, or used as bait to generate leads. As a newcomer, you have no way to tell real from fake. That's exactly the gap PropertySights fills.</p>
+        </div>
+      </div>
+
+      <!-- Visual panel -->
+      <div class="problem-visual">
+        <div class="pv-label">What most expats experience</div>
+        <div class="pv-message">
+          <div class="pvm-tag you">You</div>
+          <div class="pvm-text">"Hi, is the 2-bed in Thonglor still available? Looks perfect."</div>
+        </div>
+        <div class="pv-message">
+          <div class="pvm-tag agent">Agent · 18 hours later</div>
+          <div class="pvm-text">"Sorry, that one just went. But I have something similar — it's a bit smaller and in a different area, but let me show you…"</div>
+        </div>
+        <div class="pv-message">
+          <div class="pvm-tag you">You</div>
+          <div class="pvm-text">"OK fine. How about this one?" <em>[sends different listing]</em></div>
+        </div>
+        <div class="pv-message">
+          <div class="pvm-tag agent">Agent</div>
+          <div class="pvm-text">"Hmm, let me check… actually that one might be gone too."</div>
+        </div>
+        <div class="pv-divider">— repeat for 2 weeks —</div>
+        <div class="pv-insight">
+          <p><strong>Reality check:</strong> Most listings are posted to generate enquiries — not because the unit is actually available. You're filtering spam, not finding a home.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SOLUTION
+═══════════════════════════════════════ -->
+<section id="solution" class="section section--alt">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Our Approach</span>
+      <h2 class="h2">A Boutique, No-Spam Approach<br/><em>to Condo Hunting</em></h2>
+      <div class="rule rule-c"></div>
+      <p class="lead">At PropertySights, we act as your local property partner — not a listing factory. We focus on quality, not volume.</p>
+    </div>
+    <div class="solution-grid">
+      <div class="sg-cell">
+        <div class="sg-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="sg-h">Only verified, available condos</div>
+        <p class="sg-p">We contact landlords and agents directly to confirm availability before anything reaches you. If it's not available today, it's not on your list.</p>
+      </div>
+      <div class="sg-cell">
+        <div class="sg-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="sg-h">Tailored to your exact needs</div>
+        <p class="sg-p">Budget, location, size, BTS access, pet policy, lease length — we match based on what you actually want, not what's easiest to show.</p>
+      </div>
+      <div class="sg-cell">
+        <div class="sg-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="sg-h">Clear, honest communication in English</div>
+        <p class="sg-p">Our team is English-speaking and Bangkok-based. You get a real person, not an automated portal. Straight answers, no runaround.</p>
+      </div>
+      <div class="sg-cell">
+        <div class="sg-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="sg-h">Zero pressure. Zero cost. No bait-and-switch.</div>
+        <p class="sg-p">Free for tenants, always. We're paid a referral by the landlord when a lease is signed. Our incentive is to find you the right place — full stop.</p>
+      </div>
+      <div class="sg-positioning">
+        <div class="sgp-quote">
+          "We don't send you 50 listings.<br/>We send you <strong>the right 3–5.</strong>"
+        </div>
+        <div class="sgp-aside">
+          <p>Small on purpose. We stay boutique so we can give every client real attention — not just another enquiry in a queue.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════ -->
+<section id="how" class="section">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">The Process</span>
+      <h2 class="h2">How It Works</h2>
+      <div class="rule rule-c"></div>
+      <p class="lead">Three clear steps. No surprises.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card js-reveal">
+        <div class="step-n">01</div>
+        <h3>Tell Us What You Need</h3>
+        <p>Location, budget, lifestyle, move-in timeline. The more specific you are, the better we match. Takes about 2 minutes.</p>
+        <span class="step-tag">Location · Budget · Timeline</span>
+      </div>
+      <div class="step-card js-reveal">
+        <div class="step-n">02</div>
+        <h3>We Verify &amp; Curate</h3>
+        <p>We filter through our network, contact landlords, and confirm real availability. If we can't verify it, it doesn't reach you.</p>
+        <span class="step-tag">No Fakes · No Outdated</span>
+      </div>
+      <div class="step-card js-reveal">
+        <div class="step-n">03</div>
+        <h3>You Get Ready-to-View Options</h3>
+        <p>Within 24–48 hours, you receive 3–5 condos that are available right now and genuinely match your needs. You choose what to view — we arrange everything.</p>
+        <span class="step-tag">Real · Available · Ready</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════ -->
+<section id="testimonials" class="section section--dark">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow eyebrow--dim">Expat Reviews</span>
+      <h2 class="h2 h2-w">Trusted by Expats<br/><em>Moving to Bangkok</em></h2>
+      <div class="rule rule-c"></div>
+      <p class="lead lead-w">Real people who were exactly where you are now.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-q">"After days of frustration, PropertySights sent me 3 real options that matched exactly what I wanted. Found my Thonglor apartment the same week. The whole experience was refreshingly straightforward."</p>
+        <div class="t-auth">
+          <div class="t-av">D</div>
+          <div>
+            <div class="t-name">Daniel &nbsp;<span class="t-flag">🇬🇧</span></div>
+            <div class="t-meta">British expat · Thonglor, Bangkok</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-q">"No fake listings, no pressure — just honest help. I'd been going in circles for two weeks on my own. PropertySights sent me verified options the next day and I had a place within the week."</p>
+        <div class="t-auth">
+          <div class="t-av">S</div>
+          <div>
+            <div class="t-name">Sarah &nbsp;<span class="t-flag">🇦🇺</span></div>
+            <div class="t-meta">Australian expat · Asok, Bangkok</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-q">"I was relocating from the US and hadn't landed yet. They arranged video tours and handled everything remotely. Signed my lease before I arrived. Wouldn't have been possible on my own."</p>
+        <div class="t-auth">
+          <div class="t-av">M</div>
+          <div>
+            <div class="t-name">Marcus &nbsp;<span class="t-flag">🇺🇸</span></div>
+            <div class="t-meta">American expat · Ari, Bangkok</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trust-badges">
+      <div class="tbadge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Every listing manually verified
+      </div>
+      <div class="tbadge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Matches within 48 hours
+      </div>
+      <div class="tbadge">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        English-speaking team
+      </div>
+      <div class="tbadge">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Always free for tenants
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     OFFER
+═══════════════════════════════════════ -->
+<div class="offer-band">
+  <div class="offer-inner">
+    <div class="offer-badge">
+      <svg viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+    </div>
+    <div class="offer-copy">
+      <h2>Free Condo Matching Service — <em>Handpicked, Verified, 24–48 Hour Turnaround</em></h2>
+      <p>Tell us what you're looking for. We'll send you curated, verified condos — no cost, no obligation, no spam.</p>
+      <div class="offer-tags">
+        <span class="ot">Verified listings only</span>
+        <span class="ot">English-speaking team</span>
+        <span class="ot">One-year lease specialists</span>
+        <span class="ot">Boutique · no-spam approach</span>
+        <span class="ot">Free for all tenants</span>
+      </div>
+    </div>
+    <div class="offer-cta">
+      <a href="#form">Start My Free Search →</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     LEAD FORM
+═══════════════════════════════════════ -->
+<section id="form">
+  <div class="wrap-sm">
+    <div class="center">
+      <span class="eyebrow">Start Here — Free</span>
+      <h2 class="h2">Get Your Personalised<br/><em>Condo Matches</em></h2>
+      <div class="rule rule-c"></div>
+      <p class="lead">Fill in the form below and our team will get back to you — via your preferred channel — within one business day.</p>
+    </div>
+    <div class="form-card">
+      <div class="fg">
+        <div class="ff">
+          <label>Name</label>
+          <input type="text" placeholder="First name" />
+        </div>
+        <div class="ff">
+          <label>Contact (WhatsApp / LINE / Email)</label>
+          <input type="text" placeholder="Best way to reach you" />
+        </div>
+        <div class="ff">
+          <label>Budget Range</label>
+          <select>
+            <option value="" disabled selected>Monthly budget (THB)</option>
+            <option>Below ฿15,000</option>
+            <option>฿15,000 – ฿25,000</option>
+            <option>฿25,000 – ฿40,000</option>
+            <option>฿40,000 – ฿70,000</option>
+            <option>฿70,000+</option>
+          </select>
+        </div>
+        <div class="ff">
+          <label>Preferred Area</label>
+          <select>
+            <option value="" disabled selected>Select neighbourhood</option>
+            <option>Sukhumvit (general)</option>
+            <option>Asok / Nana</option>
+            <option>Thonglor / Ekkamai</option>
+            <option>Silom / Sathorn</option>
+            <option>Ari / Phahon Yothin</option>
+            <option>Near BTS / MRT only</option>
+            <option>Open to suggestions</option>
+          </select>
+        </div>
+        <div class="ff full">
+          <label>Move-in Date</label>
+          <input type="text" placeholder="e.g. June 2025, ASAP, or Flexible" />
+        </div>
+        <button class="form-btn full">
+          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Send Me Verified Condos
+        </button>
+        <p class="form-note full">We respect your privacy. No spam. Ever.</p>
+      </div>
+      <div class="form-assurances">
+        <div class="fa-item">
+          <div class="fa-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="fa-text">
+            <strong>Verified before it reaches you</strong>
+            <span>Every unit confirmed available on the day we send it.</span>
+          </div>
+        </div>
+        <div class="fa-item">
+          <div class="fa-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="fa-text">
+            <strong>Response within 24 hours</strong>
+            <span>We confirm receipt and follow up same business day.</span>
+          </div>
+        </div>
+        <div class="fa-item">
+          <div class="fa-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="fa-text">
+            <strong>Zero cost to you</strong>
+            <span>Tenants pay nothing. Funded by landlord referrals.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FAQ
+═══════════════════════════════════════ -->
+<section id="faq" class="section section--alt">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Common Questions</span>
+      <h2 class="h2">Honest answers to the things<br/><em>people usually wonder about</em></h2>
+      <div class="rule rule-c"></div>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">Are your listings really available?</span>
+          <span class="faq-ico"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a">Yes. We manually verify availability before sending anything. We contact the landlord or listing agent directly — if they can't confirm the unit is available right now, it doesn't reach you. It's slower than a portal, but that's the point.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">Is this service really free?</span>
+          <span class="faq-ico"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a">Yes — our service is free for tenants, always. We earn a referral from the landlord or developer when a lease is signed. This is standard practice in Thailand's property market. There are no hidden fees, and no pressure to commit.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">Do I have to commit to anything?</span>
+          <span class="faq-ico"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a">No. You can explore options with zero pressure. If none of the matches feel right, we go again. There's no limit on how many rounds we do, and no obligation at any point until you sign a lease you're happy with.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">Can you help if I'm not in Thailand yet?</span>
+          <span class="faq-ico"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a">Absolutely. Most of our clients are relocating from abroad when they first reach out. We can arrange video walkthroughs of any shortlisted unit and provide honest written notes so you can make a confident decision before you land.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">How is PropertySights different from online portals?</span>
+          <span class="faq-ico"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a">Portals have no quality control — listings stay live for months after a unit is rented. We're human-operated and we verify each option manually before you see it. We also only specialise in Bangkok rentals, so we know the market well rather than spreading thin across everything.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">What if I don't like the options you send?</span>
+          <span class="faq-ico"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a">Tell us what was off and we refine the search. No limit on how many rounds we run. We'd rather take more time getting it right than have you settle.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════ -->
+<section id="final">
+  <div class="final-inner">
+    <span class="eyebrow eyebrow--dim">You've done enough scrolling</span>
+    <h2 class="final-h">Stop Chasing Listings.<br/>Start Viewing <em>Real Homes.</em></h2>
+    <p class="final-sub">Get 3–5 verified condos that actually match your needs — within 48 hours. No fake listings. No pressure. No cost.</p>
+    <div class="final-btns">
+      <a href="#form" class="btn-fp">Get My Matches Now →</a>
+      <a href="#how" class="btn-fs">See how it works first</a>
+    </div>
+    <p class="final-meta">Free · Verified listings · English-speaking team · Bangkok rental specialists · No obligation</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer>
+  <a href="#" class="f-brand">
+    <div class="f-mark">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div class="f-name">PropertySights Real Estate · Bangkok</div>
+  </a>
+  <div class="f-copy">© 2025 PropertySights Real Estate. All rights reserved.</div>
+</footer>
+
+
+<script>
+  /* Scroll reveal */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.js-reveal').forEach(el => obs.observe(el));
+
+  /* FAQ */
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !open);
+    });
+  });
+
+  /* Nav */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+</script>
+</body>
+</html>
